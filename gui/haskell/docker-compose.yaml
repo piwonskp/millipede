@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+
+  gui:
+    build:
+      context: .
+    volumes:
+      - ..:/usr/src/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    environment:
+      - DISPLAY=${DISPLAY}
+    command: stack exec gui-exe
+
+networks:
+  default:
+    external:
+      name: django_default 

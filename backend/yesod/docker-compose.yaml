@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+
+  web:
+    build:
+      context: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    stdin_open: true
+    command: stack exec -- yesod devel --port 8000
+
+networks:
+  default:
+    external:
+      name: django_default 

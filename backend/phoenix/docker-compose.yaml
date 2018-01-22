@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+
+  web:
+    build:
+      context: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    command:  mix phx.server
+
+networks:
+  default:
+    external:
+      name: django_default 
